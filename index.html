@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Rohit Kumar | AI/ML Portfolio</title>
+  <!-- Bootstrap 5.3 + Icons + AOS + FontAwesome 6 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: background-color 0.3s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+      background: #eef0f3;
+      color: #1e1e2f;
+      scroll-behavior: smooth;
+      padding-top: 76px;
+    }
+
+    /* NEUMORPHIC BASE */
+    .neumorphic {
+      background: #eef0f3;
+      box-shadow: 9px 9px 16px #d1d1d4, -9px -9px 16px #ffffff;
+      border-radius: 32px;
+      transition: all 0.25s ease;
+    }
+
+    .neumorphic-card {
+      background: #eef0f3;
+      border-radius: 28px;
+      box-shadow: 8px 8px 16px #d1d1d4, -8px -8px 16px #ffffff;
+      padding: 1.5rem;
+      height: 100%;
+      border: none;
+    }
+
+    .neumorphic-btn {
+      background: #eef0f3;
+      box-shadow: 5px 5px 12px #d1d1d4, -5px -5px 12px #ffffff;
+      border: none;
+      transition: 0.2s;
+      border-radius: 60px;
+      padding: 8px 24px;
+      font-weight: 500;
+    }
+
+    .neumorphic-btn:hover {
+      box-shadow: inset 3px 3px 8px #d1d1d4, inset -3px -3px 8px #ffffff;
+      transform: scale(0.98);
+    }
+
+    /* DARK MODE */
+    body.dark {
+      background: #1a1b2f;
+      color: #f0f0f8;
+    }
+
+    body.dark .neumorphic,
+    body.dark .neumorphic-card,
+    body.dark .neumorphic-btn,
+    body.dark nav,
+    body.dark .card,
+    body.dark .navbar {
+      background: #232438;
+      box-shadow: 8px 8px 16px #14141f, -8px -8px 16px #323452;
+      color: #eef0ff;
+    }
+
+    body.dark .neumorphic-btn {
+      background: #232438;
+      color: #f0f0ff;
+    }
+
+    body.dark .badge {
+      background-color: #2e2f4a;
+      color: #ddddff;
+    }
+
+    body.dark .form-control {
+      background: #2c2e46;
+      border: none;
+      color: white;
+      box-shadow: inset 2px 2px 5px #14141f, inset -2px -2px 5px #3c3e62;
+    }
+
+    body.dark .form-control:focus {
+      background: #2c2e46;
+      color: white;
+    }
+
+    body.dark .text-muted {
+      color: #b9b9e0 !important;
+    }
+
+    /* navbar fixed + neumorphic */
+    .navbar {
+      background: #eef0f3;
+      border-radius: 0 0 32px 32px;
+      padding: 12px 28px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    body.dark .navbar {
+      background: #232438;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-link {
+      font-weight: 600;
+      margin: 0 4px;
+      border-radius: 40px;
+      transition: 0.2s;
+    }
+
+    .nav-link.active {
+      background: #e0e4ec;
+      box-shadow: inset 2px 2px 5px #b5b9c2, inset -2px -2px 5px #ffffff;
+    }
+
+    body.dark .nav-link.active {
+      background: #2f314e;
+      box-shadow: inset 2px 2px 5px #10101a, inset -2px -2px 5px #3e4168;
+    }
+
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 12px 12px 24px #b0b3be, -8px -8px 18px #ffffff;
+      border: 3px solid rgba(255,255,255,0.5);
+    }
+
+    body.dark .profile-img {
+      box-shadow: 12px 12px 24px #10101a, -8px -8px 18px #3c3e62;
+    }
+
+    .skill-badge {
+      background: #eef0f3;
+      padding: 8px 18px;
+      margin: 6px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 3px 3px 8px #d1d1d4, -3px -3px 8px #ffffff;
+    }
+
+    body.dark .skill-badge {
+      background: #232438;
+      box-shadow: 3px 3px 8px #14141f, -3px -3px 8px #323452;
+    }
+
+    .project-img {
+      height: 200px;
+      object-fit: cover;
+      border-radius: 24px;
+      width: 100%;
+    }
+
+    .logo-sm {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 20px;
+    }
+
+    .footer-link {
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .social-icon {
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: 0.2s;
+    }
+
+    /* active scroll fix */
+    section {
+      scroll-margin-top: 90px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 68px;
+      }
+      .profile-img {
+        width: 140px;
+        height: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- FIXED NEUMORPHIC NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top neumorphic py-2">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">Rohit<span class="text-primary">.</span>Kumar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-1">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#experiences">Experiences</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
+        <li class="nav-item"><a class="nav-link" href="#activity">Activity</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <button id="darkmode-toggle" class="btn neumorphic-btn ms-lg-3"><i class="fas fa-moon"></i> <span>Dark</span></button>
+    </div>
+  </div>
+</nav>
+
+<main class="container py-4">
+  <!-- HERO / HOME SECTION -->
+  <section id="home" class="my-5" data-aos="fade-up">
+    <div class="row align-items-center g-5">
+      <div class="col-md-5 text-center">
+        <!-- Profile image from Google Drive (replace ID) -->
+        <img src="https://drive.google.com/uc?export=view&id=1ABC123xyz" alt="Profile" class="profile-img" onerror="this.src='https://placehold.co/400x400?text=Profile'">
+        <!-- user instruction: replace 1ABC123xyz with actual ID -->
+      </div>
+      <div class="col-md-7">
+        <h1 class="display-4 fw-bold">Rohit Kumar</h1>
+        <p class="lead">B.Tech CSE (AI/ML) • KL University</p>
+        <h3 class="h4 mb-3">I'm a <span id="typewriter" class="text-primary"></span><span class="blinking-cursor">|</span></h3>
+        <div class="d-flex gap-3 my-4 flex-wrap">
+          <a href="#" class="btn neumorphic-btn" id="resumeBtn"><i class="fas fa-file-alt"></i> Resume</a>
+          <a href="#contact" class="btn neumorphic-btn"><i class="fas fa-envelope"></i> Contact</a>
+        </div>
+        <div class="social-links mt-3">
+          <a href="https://linkedin.com/in/rohitkumar" target="_blank" class="text-dark me-3 social-icon"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/rohitkumar" target="_blank" class="text-dark me-3 social-icon"><i class="fab fa-github"></i></a>
+          <a href="https://leetcode.com/rohitkumar" target="_blank" class="text-dark me-3 social-icon"><i class="fab fa-code"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCES SECTION -->
+  <section id="experiences" class="my-5" data-aos="fade-up">
+    <h2 class="fw-bold mb-4 text-center"><i class="fas fa-briefcase me-2"></i>Experiences & Internships</h2>
+    <div class="row g-4">
+      <!-- Experience 1 - WTN logo provided -->
+      <div class="col-md-6">
+        <div class="neumorphic-card h-100">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <img src="https://drive.google.com/uc?export=view&id=1GHI789rst" alt="WTN logo" class="logo-sm" onerror="this.src='https://placehold.co/60x60'">
+            <div><h4 class="mb-0">Machine Learning Intern</h4><p class="text-muted mb-0">Wissen Technology (WTN) • June 2024 - Sept 2024</p></div>
+          </div>
+          <ul>
+            <li>Developed predictive models for financial data, improving accuracy by 18%.</li>
+            <li>Optimized data pipelines using Python & Pandas, reducing inference time by 25%.</li>
+            <li>Collaborated with cross-functional teams to deploy ML models on cloud.</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Experience 2 - AICTE logo -->
+      <div class="col-md-6">
+        <div class="neumorphic-card h-100">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <img src="https://drive.google.com/uc?export=view&id=1JKL012mno" alt="AICTE logo" class="logo-sm" onerror="this.src='https://placehold.co/60x60'">
+            <div><h4 class="mb-0">Full Stack Developer Intern</h4><p class="text-muted mb-0">AICTE NEAT • Jan 2024 - Apr 2024</p></div>
+          </div>
+          <ul>
+            <li>Built responsive web dashboards using React.js and Bootstrap.</li>
+            <li>Integrated REST APIs and implemented JWT authentication.</li>
+            <li>Contributed to open-source modules for e-learning portal.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION (4 Cards with Google Drive thumbnails) -->
+  <section id="projects" class="my-5" data-aos="fade-up">
+    <h2 class="fw-bold mb-4 text-center"><i class="fas fa-laptop-code me-2"></i>Featured Projects</h2>
+    <div class="row g-4">
+      <!-- Project 1: AI Trading Robo -->
+      <div class="col-md-6 col-lg-3">
+        <div class="neumorphic-card h-100">
+          <img src="https://drive.google.com/uc?export=view&id=1PQR345stu" class="project-img mb-3" alt="AI Trading" onerror="this.src='https://placehold.co/400x200'">
+          <h5>AI Trading Robo</h5>
+          <p class="small">Reinforcement learning based trading bot with LSTM predictions. Backtested 85% accuracy.</p>
+          <a href="https://github.com/rohitkumar/trading-robo" target="_blank" class="btn neumorphic-btn w-100 mt-2"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+      </div>
+      <!-- Project 2: Zoom Attendance Tracker -->
+      <div class="col-md-6 col-lg-3">
+        <div class="neumorphic-card h-100">
+          <img src="https://drive.google.com/uc?export=view&id=1STU678vwx" class="project-img mb-3" alt="Zoom Attendance" onerror="this.src='https://placehold.co/400x200'">
+          <h5>Zoom Attendance Tracker</h5>
+          <p class="small">Chrome extension + Python script to auto-record attendance from Zoom logs. Used by 200+ students.</p>
+          <a href="https://github.com/rohitkumar/zoom-attend" target="_blank" class="btn neumorphic-btn w-100 mt-2"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+      </div>
+      <!-- Project 3: AgriTech -->
+      <div class="col-md-6 col-lg-3">
+        <div class="neumorphic-card h-100">
+          <img src="https://drive.google.com/uc?export=view&id=1VWX901yza" class="project-img mb-3" alt="AgriTech" onerror="this.src='https://placehold.co/400x200'">
+          <h5>AgriTech Assistant</h5>
+          <p class="small">Crop disease detection using CNNs, deployed with Flask, real-time recommendations.</p>
+          <a href="https://github.com/rohitkumar/agritech-ai" target="_blank" class="btn neumorphic-btn w-100 mt-2"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+      </div>
+      <!-- Project 4: Indian Heritage & Culture -->
+      <div class="col-md-6 col-lg-3">
+        <div class="neumorphic-card h-100">
+          <img src="https://drive.google.com/uc?export=view&id=1YZA234bcd" class="project-img mb-3" alt="Heritage" onerror="this.src='https://placehold.co/400x200'">
+          <h5>Indian Heritage & Culture</h5>
+          <p class="small">Interactive web platform showcasing monuments, AR view integration, and quiz modules.</p>
+          <a href="https://github.com/rohitkumar/heritage-hub" target="_blank" class="btn neumorphic-btn w-100 mt-2"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="my-5" data-aos="fade-up">
+    <h2 class="fw-bold mb-4 text-center"><i class="fas fa-cogs me-2"></i>Technical Skills</h2>
+    <div class="neumorphic-card p-4">
+      <div class="row">
+        <div class="col-md-6"><h5><i class="fab fa-python"></i> Programming Languages</h5><div><span class="skill-badge"><i class="fab fa-python"></i> Python</span><span class="skill-badge"><i class="fab fa-js"></i> JavaScript</span><span class="skill-badge"><i class="fab fa-java"></i> Java</span><span class="skill-badge"><i class="fas fa-code"></i> C++</span></div></div>
+        <div class="col-md-6"><h5><i class="fas fa-layer-group"></i> Frameworks & Libs</h5><div><span class="skill-badge"><i class="fab fa-react"></i> React</span><span class="skill-badge"><i class="fab fa-bootstrap"></i> Bootstrap</span><span class="skill-badge"><i class="fas fa-flask"></i> Flask</span><span class="skill-badge"><i class="fas fa-brain"></i> TensorFlow</span></div></div>
+        <div class="col-md-6 mt-3"><h5><i class="fas fa-database"></i> Core Skills</h5><div><span class="skill-badge">Data Structures</span><span class="skill-badge">Machine Learning</span><span class="skill-badge">DBMS</span><span class="skill-badge">REST APIs</span></div></div>
+        <div class="col-md-6 mt-3"><h5><i class="fas fa-tools"></i> Other Skills</h5><div><span class="skill-badge"><i class="fab fa-git-alt"></i> Git/GitHub</span><span class="skill-badge">Docker</span><span class="skill-badge">Cloud (AWS)</span><span class="skill-badge">UI/UX basics</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION SECTION -->
+  <section id="education" class="my-5" data-aos="fade-up">
+    <h2 class="fw-bold mb-4 text-center"><i class="fas fa-graduation-cap me-2"></i>Education</h2>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="neumorphic-card d-flex flex-row align-items-center gap-4 flex-wrap">
+          <img src="https://drive.google.com/uc?export=view&id=1DEF456uvw" alt="KLU logo" style="width: 70px; height: 70px; object-fit: contain;" onerror="this.src='https://placehold.co/80x80'">
+          <div><h4>B.Tech CSE (AI/ML)</h4><p>KL University, 2022-2026 | CGPA: 9.28/10</p><p class="small text-muted">Relevant Coursework: Deep Learning, NLP, Cloud Computing, Advanced DSA</p></div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="neumorphic-card d-flex flex-row align-items-center gap-4 flex-wrap">
+          <img src="https://drive.google.com/uc?export=view&id=1BCD567efg" alt="TNB College logo" style="width: 70px; height: 70px; object-fit: contain;" onerror="this.src='https://placehold.co/80x80'">
+          <div><h4>Intermediate (MPC)</h4><p>TNB College, 2020-2022 | Percentage: 96.2%</p><p class="small text-muted">Mathematics, Physics, Chemistry with Computer Science</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS SECTION -->
+  <section id="achievements" class="my-5" data-aos="fade-up">
+    <h2 class="fw-bold mb-4 text-center"><i class="fas fa-trophy me-2"></i>Achievements</h2>
+    <div class="row g-4">
+      <div class="col-md-4"><div class="neumorphic-card text-center"><i class="fas fa-medal fa-2x mb-3 text-warning"></i><h5>Smart India Hackathon 2023</h5><p>Finalist - AI based solution for agriculture, recognized by MoE.</p></div></div>
+      <div class="col-md-4"><div class="neumorphic-card text-center"><i class="fas fa-microphone-alt fa-2x mb-3 text-info"></i><h5>IIT Workshop Excellence</h5><p>Attended "Deep Learning & Computer Vision" workshop at IIT Kharagpur, received merit certificate.</p></div></div>
+      <div class="col-md-4"><div class="neumorphic-card text-center"><i class="fas fa-code-branch fa-2x mb-3 text-success"></i><h5>Coding Ninjas Gold Badge</h5><p>Top 2% in LeetCode weekly contests, 500+ DSA problems solved.</p></div></div>
+    </div>
+  </section>
+
+  <!-- ACTIVITIES SECTION -->
+  <section id="activity" class="my-5" data-aos="fade-up">
+    <h2 class="fw-bold mb-4 text-center"><i class="fas fa-running me-2"></i>Co-Curricular Activities</h2>
+    <div class="row g-4">
+      <div class="col-md-4"><div class="neumorphic-card"><i class="fas fa-laptop-code fa-2x mb-2"></i><h5>HackVerse 2.0</h5><p>Built full-stack solution for waste management, won 1st prize among 35 teams.</p></div></div>
+      <div class="col-md-4"><div class="neumorphic-card"><i class="fas fa-paintbrush fa-2x mb-2"></i><h5>Graphic Design Lead</h5><p>Designed social media creatives for college fest, 10k+ impressions.</p></div></div>
+      <div class="col-md-4"><div class="neumorphic-card"><i class="fab fa-chrome fa-2x mb-2"></i><h5>Web Dev Club Mentor</h5><p>Conducted workshops on Bootstrap & JavaScript, mentored 50+ juniors.</p></div></div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION with Formspree -->
+  <section id="contact" class="my-5" data-aos="fade-up">
+    <h2 class="fw-bold mb-4 text-center"><i class="fas fa-address-card me-2"></i>Get in Touch</h2>
+    <div class="row g-5">
+      <div class="col-md-5">
+        <div class="neumorphic-card h-100">
+          <h4><i class="fas fa-envelope"></i> Email</h4>
+          <p>rohit.kumar@kluniversity.in</p>
+          <h4><i class="fas fa-phone-alt"></i> Phone</h4>
+          <p>+91 98765 43210</p>
+          <h4><i class="fas fa-map-marker-alt"></i> Address</h4>
+          <p>Vijayawada, Andhra Pradesh, India</p>
+          <div class="mt-4"><i class="fab fa-linkedin me-2"></i><i class="fab fa-github mx-2"></i><i class="fab fa-twitter mx-2"></i></div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="neumorphic-card">
+          <form id="contactForm">
+            <div class="mb-3"><label class="form-label">Full Name</label><input type="text" class="form-control" id="name" placeholder="Rohit Kumar" required></div>
+            <div class="mb-3"><label class="form-label">Email address</label><input type="email" class="form-control" id="email" placeholder="name@example.com" required></div>
+            <div class="mb-3"><label class="form-label">Message</label><textarea class="form-control" id="message" rows="4" placeholder="Your message..." required></textarea></div>
+            <button type="submit" class="btn neumorphic-btn w-100"><i class="fas fa-paper-plane"></i> Send Message</button>
+            <div id="formStatus" class="mt-3 text-center fw-bold"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="container mt-5 mb-4">
+  <div class="neumorphic p-4 rounded-4">
+    <div class="row gy-4">
+      <div class="col-md-5"><h5>Rohit Kumar</h5><p class="small">Passionate AI/ML developer with Full Stack expertise. Looking for opportunities to build impactful solutions.</p><div><a href="#" id="footerResumeBtn" class="text-decoration-none me-3"><i class="fas fa-download"></i> Resume</a></div></div>
+      <div class="col-md-3"><h6>Quick Links</h6><ul class="list-unstyled"><li><a href="#home" class="footer-link">Home</a></li><li><a href="#projects" class="footer-link">Projects</a></li><li><a href="#contact" class="footer-link">Contact</a></li></ul></div>
+      <div class="col-md-4"><h6>Socials</h6><a href="#" class="social-icon text-dark me-2"><i class="fab fa-linkedin"></i></a><a href="#" class="social-icon text-dark me-2"><i class="fab fa-github"></i></a><a href="#" class="social-icon text-dark me-2"><i class="fab fa-leetcode"></i></a><p class="mt-3 small">© 2025 Rohit Kumar | Neumorphic Portfolio</p></div>
+    </div>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 800, once: true, offset: 50 });
+  
+  // TYPEWRITER EFFECT
+  const roles = ["AI/ML Developer", "Full Stack Developer", "UI/UX Designer"];
+  let roleIndex = 0, charIndex = 0, isDeleting = false;
+  const typewriterSpan = document.getElementById("typewriter");
+  function typeEffect() {
+    const currentRole = roles[roleIndex];
+    if (isDeleting) {
+      typewriterSpan.textContent = currentRole.substring(0, charIndex-1);
+      charIndex--;
+    } else {
+      typewriterSpan.textContent = currentRole.substring(0, charIndex+1);
+      charIndex++;
+    }
+    if (!isDeleting && charIndex === currentRole.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, 2000);
+      return;
+    }
+    if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex+1) % roles.length;
+      setTimeout(typeEffect, 300);
+      return;
+    }
+    const speed = isDeleting ? 50 : 100;
+    setTimeout(typeEffect, speed);
+  }
+  typeEffect();
+
+  // DARK MODE TOGGLE with localStorage
+  const toggleBtn = document.getElementById("darkmode-toggle");
+  const body = document.body;
+  if (localStorage.getItem("darkMode") === "enabled") {
+    body.classList.add("dark");
+    toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light';
+  } else {
+    toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Dark';
+  }
+  toggleBtn.addEventListener("click", () => {
+    body.classList.toggle("dark");
+    if (body.classList.contains("dark")) {
+      localStorage.setItem("darkMode", "enabled");
+      toggleBtn.innerHTML = '<i class="fas fa-sun"></i> Light';
+    } else {
+      localStorage.setItem("darkMode", "disabled");
+      toggleBtn.innerHTML = '<i class="fas fa-moon"></i> Dark';
+    }
+  });
+
+  // Active nav highlight on scroll
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav-link");
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if (scrollY >= sectionTop) current = section.getAttribute("id");
+    });
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) link.classList.add("active");
+    });
+  });
+
+  // Smooth scroll for navbar links
+  document.querySelectorAll(".nav-link").forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href").substring(1);
+      const targetElem = document.getElementById(targetId);
+      if (targetElem) targetElem.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  // RESUME placeholder (Google Drive link - replace with actual file ID)
+  const resumeDriveLink = "https://drive.google.com/file/d/1RESUME_ID123/view?usp=sharing";
+  document.getElementById("resumeBtn")?.addEventListener("click", (e) => { e.preventDefault(); window.open(resumeDriveLink, "_blank"); });
+  document.getElementById("footerResumeBtn")?.addEventListener("click", (e) => { e.preventDefault(); window.open(resumeDriveLink, "_blank"); });
+
+  // FORMSPREE integration with fetch, validation + messages
+  const contactForm = document.getElementById("contactForm");
+  const formStatusDiv = document.getElementById("formStatus");
+  // Replace with YOUR actual Formspree endpoint ID: example placeholder
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";  // <-- Replace with real ID
+
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+    if (!name || !email || !message) {
+      formStatusDiv.innerHTML = '<span class="text-danger">❌ All fields are required.</span>';
+      return;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      formStatusDiv.innerHTML = '<span class="text-danger">⚠️ Enter a valid email address.</span>';
+      return;
+    }
+    formStatusDiv.innerHTML = '<span class="text-info">⏳ Sending...</span>';
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message })
+      });
+      if (response.ok) {
+        formStatusDiv.innerHTML = '<span class="text-success">✅ Message sent successfully! I’ll get back soon.</span>';
+        contactForm.reset();
+        setTimeout(() => formStatusDiv.innerHTML = "", 4000);
+      } else {
+        const errorData = await response.json();
+        formStatusDiv.innerHTML = `<span class="text-danger">❌ Error: ${errorData.error || "Submission failed. Check Formspree ID."}</span>`;
+      }
+    } catch (err) {
+      formStatusDiv.innerHTML = '<span class="text-danger">❌ Network error. Please try again later.</span>';
+    }
+  });
+</script>
+
+<!-- Instructions for replacing Google Drive file IDs (embedded as comment) -->
+<!-- 
+  IMPORTANT: Replace all Google Drive image IDs with your actual file IDs.
+  To get direct image link: 
+  1. Share image on Drive → "Anyone with the link can view"
+  2. Copy file ID from URL (after 'id=')
+  3. Use format: https://drive.google.com/uc?export=view&id=YOUR_FILE_ID
+
+  Current placeholder IDs used:
+  - Profile: 1ABC123xyz
+  - KL University Logo: 1DEF456uvw
+  - WTN Logo: 1GHI789rst
+  - AICTE Logo: 1JKL012mno
+  - TNB College Logo: 1BCD567efg
+  - Project Thumbnails: 1PQR345stu, 1STU678vwx, 1VWX901yza, 1YZA234bcd
+
+  Also replace Resume link (file ID) and Formspree endpoint ID.
+-->
+</body>
+</html>
